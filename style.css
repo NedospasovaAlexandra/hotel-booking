@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #4a6baf;
-    --secondary-color: #3a5a8c;
-    --accent-color: #e74c3c;
-    --light-color: #f8f9fa;
-    --dark-color: #2c3e50;
-    --success-color: #27ae60;
+    --primary-color: #3a7bd5;          /* синий */
+    --secondary-color: #00c6ff;        /* голубой */
+    --accent-color: #e74c3c;           /* красный для отмены */
+    --light-color: #f4faff;            /* очень светлый голубой */
+    --dark-color: #2c3e50;             /* темно-синий */
+    --success-color: #27ae60;          /* зелёный для подтверждения */
 }
 
 * {
@@ -16,8 +16,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f7fa;
+    color: var(--dark-color);
+    background-color: var(--light-color);
 }
 
 .container {
@@ -32,7 +32,7 @@ body {
     color: white;
     padding: 25px 0;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -46,12 +46,22 @@ body {
     opacity: 0.9;
 }
 
-.booking-section, .pricing-section, .contacts-section {
+.background-overlay {
+    background-color: rgba(255, 255, 255, 0.98);
+    min-height: 100vh;
+}
+
+.booking-section, .contacts-section {
     background: white;
     margin: 25px 0;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s;
+}
+
+.booking-section:hover {
+    transform: scale(1.005);
 }
 
 h2 {
@@ -82,25 +92,27 @@ h2 {
 
 label {
     font-weight: 500;
-    color: var(--dark-color);
     font-size: 0.95rem;
+    color: var(--dark-color);
 }
 
 input, select {
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
-    transition: border 0.3s;
+    background-color: #fff;
+    transition: border 0.3s, box-shadow 0.3s;
 }
 
 input:focus, select:focus {
     border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(58, 123, 213, 0.4);
     outline: none;
 }
 
 .checkbox-group {
-    flex-direction: row;
+    display: flex;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
@@ -119,54 +131,27 @@ input:focus, select:focus {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in-out;
     flex: 1;
 }
 
 .btn-submit {
-    background-color: var(--success-color);
+    background: linear-gradient(to right, #3a7bd5, #00c6ff);
     color: white;
 }
 
 .btn-cancel {
-    background-color: var(--accent-color);
+    background: linear-gradient(to right, #e74c3c, #c0392b);
     color: white;
 }
 
 .btn:hover {
-    opacity: 0.9;
+    opacity: 0.95;
     transform: translateY(-2px);
 }
 
-.pricing-table {
-    overflow-x: auto;
-    margin-top: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-th, td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-th {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: 500;
-}
-
-tr:nth-child(even) {
-    background-color: #f8fafc;
-}
-
 .contact-info {
-    background-color: #f0f4f8;
+    background-color: #eaf6ff;
     padding: 20px;
     border-radius: 8px;
     margin-top: 15px;
@@ -193,19 +178,19 @@ tr:nth-child(even) {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .form-actions {
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
     }
-    
+
     .header {
         padding: 20px 0;
     }
-    
+
     .logo {
         font-size: 1.8rem;
     }
