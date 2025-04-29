@@ -1,41 +1,134 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Гостиница – Бронирование</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостиница — Система бронирования</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Система бронирования</h1>
-    <p>Интерфейс администратора</p>
-  </header>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Отель "Премиум"</h1>
+            <p class="admin-info">Система управления бронированием (для администратора)</p>
+        </div>
+    </header>
 
-  <main>
-    <section class="info">
-      <h2>Информация о номерах</h2>
-      <ul>
-        <li>1-, 2-х, 3-х местные номера</li>
-        <li>Категории: стандарт, комфорт, люкс</li>
-        <li>Детская кровать по запросу</li>
-        <li>Разная стоимость в зависимости от дня недели</li>
-        <li>Скидки при длительном проживании</li>
-      </ul>
-    </section>
+    <main class="main">
+        <section class="booking-section">
+            <div class="container">
+                <h2>Бронирование номера</h2>
+                <form class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guest-name">ФИО гостя:</label>
+                            <input type="text" id="guest-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон:</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </div>
 
-    <section class="actions">
-      <h2>Действия администратора</h2>
-      <ul>
-        <li>Оформление брони</li>
-        <li>Отмена брони</li>
-        <li>Фиксация дат заезда и выезда</li>
-      </ul>
-    </section>
-  </main>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkin-date">Дата заезда:</label>
+                            <input type="date" id="checkin-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-date">Дата выезда:</label>
+                            <input type="date" id="checkout-date" required>
+                        </div>
+                    </div>
 
-  <footer>
-    <p>&copy; 2025 Гостиница «Уют+»</p>
-  </footer>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="room-type">Тип номера:</label>
+                            <select id="room-type" required>
+                                <option value="">Выберите</option>
+                                <option value="standard">Стандарт (1-местный)</option>
+                                <option value="comfort">Комфорт (2-местный)</option>
+                                <option value="lux">Люкс (3-местный)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Количество гостей:</label>
+                            <select id="guests" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="child-bed">
+                        <label for="child-bed">Детская кровать (+500 руб./сутки)</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-submit">Забронировать</button>
+                        <button type="button" class="btn btn-cancel">Отменить бронь</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <div class="container">
+                <h2>Стоимость номеров</h2>
+                <div class="pricing-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Тип номера</th>
+                                <th>Пн-Чт</th>
+                                <th>Пт-Вс</th>
+                                <th>Длительное проживание (7+ дней)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Стандарт</td>
+                                <td>2 500 руб.</td>
+                                <td>3 000 руб.</td>
+                                <td>-10%</td>
+                            </tr>
+                            <tr>
+                                <td>Комфорт</td>
+                                <td>3 500 руб.</td>
+                                <td>4 000 руб.</td>
+                                <td>-15%</td>
+                            </tr>
+                            <tr>
+                                <td>Люкс</td>
+                                <td>5 000 руб.</td>
+                                <td>6 000 руб.</td>
+                                <td>-20%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts-section">
+            <div class="container">
+                <h2>Контакты администратора</h2>
+                <div class="contact-info">
+                    <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
+                    <p><strong>Режим работы:</strong> круглосуточно</p>
+                    <p class="note">* Все бронирования подтверждаются администратором по телефону</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2023 Отель "Премиум". Система бронирования.</p>
+        </div>
+    </footer>
 </body>
 </html>
